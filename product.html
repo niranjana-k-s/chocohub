@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Product – ChocoHub</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff7f0;--surface:#fff;--text:#2f1620;--muted:#85666f;--rose:#c2185b;--gold:#d99a2b;--border:#f0dccf;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b0f17;--surface:#2a1823;--text:#fbeee6;--muted:#c2a3ad;--rose:#ff6fa5;--gold:#f2b84b;--border:#43293a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1b0f17;--surface:#2a1823;--text:#fbeee6;--muted:#c2a3ad;--rose:#ff6fa5;--gold:#f2b84b;--border:#43293a;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Poppins,system-ui,sans-serif;line-height:1.6}
+h1,h2,h3,.logo{font-family:'Playfair Display',Georgia,serif}
+svg{display:block;width:100%;height:auto}
+a{color:inherit}
+header{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:12px 22px;background:var(--bg);border-bottom:1px solid var(--border)}
+.logo{font-size:1.5rem;font-weight:800;text-decoration:none;background:linear-gradient(90deg,var(--rose),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+nav{display:flex;gap:18px;align-items:center;font-size:.9rem}
+nav a{text-decoration:none;color:var(--muted)}
+.btn{font:600 .95rem Poppins,sans-serif;background:linear-gradient(90deg,#c2185b,#e8743b);color:#fff;border:0;border-radius:999px;padding:11px 24px;cursor:pointer;box-shadow:0 6px 16px rgba(194,24,91,.3)}
+.btn.alt{background:var(--text);color:var(--bg);box-shadow:none}
+main{max-width:1000px;margin:auto;padding:18px 16px 40px}
+.crumb{font-size:.85rem;color:var(--muted);margin-bottom:14px}
+.crumb a{text-decoration:none}
+.wrap{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+@media (max-width:760px){.wrap{grid-template-columns:1fr}}
+.big{border-radius:28px;padding:36px 44px 22px;position:relative;box-shadow:0 16px 36px rgba(120,30,70,.2)}
+.badge{position:absolute;top:18px;left:18px;background:var(--gold);color:#2f1620;font-size:.75rem;font-weight:600;padding:4px 12px;border-radius:999px}
+.cat{color:var(--rose);font-size:.8rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase}
+h1{font-size:clamp(1.8rem,6vw,2.5rem);margin:2px 0 6px;line-height:1.15}
+.stars{color:var(--gold);letter-spacing:2px}
+.stars small{color:var(--muted);letter-spacing:0;font-size:.85rem;margin-left:6px}
+.price{font-size:1.9rem;font-weight:600;color:var(--rose);margin:10px 0}
+.desc{color:var(--muted);margin:0 0 16px}
+.buy{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:16px 0}
+.step{display:flex;align-items:center;border:1.5px solid var(--border);border-radius:999px;background:var(--surface)}
+.step button{width:40px;height:40px;border:0;background:none;color:var(--text);font-size:1.2rem;cursor:pointer}
+.step span{min-width:28px;text-align:center;font-weight:600}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+.facts div{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:10px 14px;font-size:.85rem}
+.facts b{display:block;color:var(--muted);font-weight:500;font-size:.75rem}
+.tabs{margin-top:34px}
+.tb{display:flex;gap:8px;flex-wrap:wrap}
+.tb button{font:500 .88rem Poppins,sans-serif;background:var(--surface);color:var(--text);border:1.5px solid var(--border);border-radius:999px;padding:7px 18px;cursor:pointer}
+.tb button.on{background:linear-gradient(90deg,#c2185b,#e8743b);color:#fff;border-color:transparent}
+#tc{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:18px 20px;margin-top:12px;color:var(--muted)}
+h2{font-size:1.6rem;margin:38px 0 14px}
+.rel{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:10px 10px 14px;text-decoration:none;display:block;transition:transform .2s}
+.card:hover{transform:translateY(-4px)}
+.card .pic{border-radius:14px;padding:14px 24px 6px}
+.card h3{margin:10px 6px 0;font-size:1rem}
+.card span{margin:0 6px;color:var(--rose);font-weight:600}
+.rv{display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:start}
+@media (max-width:640px){.rv{grid-template-columns:1fr}}
+.sum{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:20px;text-align:center}
+.avg{font:800 2.8rem 'Playfair Display',serif;color:var(--rose);line-height:1}
+.sum small{color:var(--muted);display:block}
+.rform{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:18px;display:grid;gap:10px}
+.rform input,.rform textarea{font:inherit;padding:10px 14px;border-radius:14px;border:1.5px solid var(--border);background:var(--bg);color:var(--text);width:100%}
+.pick button{background:none;border:0;font-size:1.8rem;color:var(--border);cursor:pointer;padding:0 2px}
+.pick button.on{color:var(--gold)}
+#rmsg{margin:0;color:var(--rose);min-height:1.4em;font-size:.9rem}
+.rev{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:14px 18px;margin-top:12px}
+.rev b{margin-right:8px}
+.rev p{margin:4px 0 0;color:var(--muted)}
+#cart{position:fixed;right:0;top:0;bottom:0;width:min(380px,100%);background:var(--surface);border-left:1px solid var(--border);padding:18px;transform:translateX(105%);transition:transform .3s;z-index:10;display:flex;flex-direction:column;box-shadow:-10px 0 30px rgba(0,0,0,.2)}
+#cart.open{transform:none}
+#cart h2{margin:0 0 8px;font-size:1.5rem}
+#items{flex:1;overflow:auto}
+.line{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+.th{width:52px;flex:none;border-radius:12px;padding:4px}
+.n{flex:1;font-size:.88rem}
+.qty button{width:26px;height:26px;border-radius:50%;border:1px solid var(--border);background:var(--bg);color:var(--text);cursor:pointer}
+.total{display:flex;justify-content:space-between;font-weight:600;padding:12px 0;font-size:1.1rem}
+.close{align-self:flex-end;background:none;border:0;color:var(--text);font-size:1.6rem;cursor:pointer}
+#msg{color:var(--rose);min-height:1.5em;text-align:center;margin:8px 0 0}
+footer{text-align:center;color:var(--muted);padding:26px;font-size:.85rem;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+<header>
+<a class="logo" href="index.html">ChocoHub</a>
+<nav><a href="index.html">Home</a><a href="product.html?id=1">Shop</a><button class="btn" id="open" style="padding:9px 18px;font-size:.9rem">Cart · <span id="count">0</span></button></nav>
+</header>
+
+<main>
+<div class="crumb"><a href="index.html">Home</a> / <a href="product.html?id=1">Shop</a> / <span id="bc"></span></div>
+<div class="wrap">
+<div class="big" id="big"></div>
+<div>
+<div class="cat" id="cat"></div>
+<h1 id="name"></h1>
+<div class="stars" id="stars"></div>
+<div class="price" id="price"></div>
+<p class="desc" id="desc"></p>
+<div class="buy">
+<div class="step"><button id="mi" aria-label="Less">−</button><span id="q">1</span><button id="pl" aria-label="More">+</button></div>
+<button class="btn" id="add">Add to cart</button>
+<button class="btn alt" id="now">Buy now</button>
+</div>
+<div class="facts"><div><b>Weight</b><span id="w"></span></div><div><b>Shelf life</b>6 months</div><div><b>Shipping</b>Free over $40</div><div><b>Made in</b>Small batches</div></div>
+</div>
+</div>
+
+<div class="tabs">
+<div class="tb" id="tb"></div>
+<div id="tc"></div>
+</div>
+
+<h2>Ratings &amp; Reviews</h2>
+<div class="rv">
+<div class="sum"><div class="avg" id="avg"></div><div class="stars" id="avgs"></div><small id="cnt"></small></div>
+<form class="rform" id="rf">
+<b>Rate this product</b>
+<div class="pick" id="pick"></div>
+<input id="rn" placeholder="Your name" required maxlength="30" aria-label="Your name">
+<textarea id="rt" rows="3" placeholder="Share your thoughts..." required maxlength="300" aria-label="Your review"></textarea>
+<button class="btn" type="submit">Submit review</button>
+<p id="rmsg"></p>
+</form>
+</div>
+<div id="rlist"></div>
+
+<h2>More chocolates</h2>
+<div class="rel" id="rel"></div>
+</main>
+
+<footer>© 2026 ChocoHub · Handmade with love</footer>
+
+<aside id="cart" aria-label="Shopping cart">
+<button class="close" id="close" aria-label="Close cart">×</button>
+<h2>Your Cart</h2>
+<div id="items"></div>
+<div class="total"><span>Total</span><span id="total">$0.00</span></div>
+<button class="btn" id="checkout">Checkout</button>
+<p id="msg"></p>
+</aside>
+
+<script>
+let u=0;
+const G=(a,b)=>{const i="g"+u++;return{d:`<defs><linearGradient id="${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs>`,f:`url(#${i})`}};
+const S=x=>`<svg viewBox="0 0 100 100" aria-hidden="true">${x}</svg>`;
+const sh='<ellipse cx="50" cy="91" rx="30" ry="4" fill="#000" opacity=".18"/>';
+const art={
+bar:(a,b,w)=>{const g=G(a,b);let l="";for(let i=1;i<3;i++)l+=`<path d="M${22+i*18.7} 12v74"/>`;for(let j=1;j<5;j++)l+=`<path d="M22 ${12+j*14.8}h56"/>`;
+return S(g.d+sh+`<g transform="rotate(-12 50 50)"><rect x="22" y="12" width="56" height="74" rx="7" fill="${g.f}"/><g stroke="#000" stroke-opacity=".22" stroke-width="1.5">${l}</g><rect x="22" y="56" width="56" height="30" rx="7" fill="${w}"/><rect x="22" y="64" width="56" height="4" fill="#fff" opacity=".55"/><path d="M30 20q6-4 12 0" stroke="#fff" stroke-opacity=".4" stroke-width="3" fill="none" stroke-linecap="round"/></g>`)},
+truffle:(a,b,d,c)=>{const g=G(a,b);let s="";for(let i=0;i<14;i++){const t=i*2.4,r=6+(i*7)%20;s+=`<circle cx="${(50+Math.cos(t)*r*.95).toFixed(1)}" cy="${(50+Math.sin(t)*r).toFixed(1)}" r="1.7" fill="${d}"/>`}
+return S(g.d+sh+`<path d="M24 66L76 66L70 86Q50 90 30 86Z" fill="${c}"/><path d="M30 71h40M33 78h34" stroke="#fff" stroke-opacity=".45"/><circle cx="50" cy="50" r="27" fill="${g.f}"/>${s}<ellipse cx="40" cy="38" rx="9" ry="5" fill="#fff" opacity=".3" transform="rotate(-30 40 38)"/>`)},
+mug:(a,b)=>{const g=G(a,b);return S(g.d+sh+`<path d="M70 48h5a9 9 0 0 1 0 22h-7" fill="none" stroke="${a}" stroke-width="6"/><path d="M26 40h46v26a14 14 0 0 1-14 14H40a14 14 0 0 1-14-14Z" fill="${g.f}"/><ellipse cx="49" cy="40" rx="23" ry="6" fill="#4a2312"/><rect x="36" y="31" width="10" height="9" rx="3" fill="#fff"/><rect x="50" y="33" width="10" height="8" rx="3" fill="#ffd6e3"/><path d="M40 24q-5-6 0-11M54 24q-5-6 0-11" stroke="#b08a78" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".7"/>`)},
+box:(a,b)=>{const g=G(a,b);return S(g.d+sh+`<rect x="16" y="44" width="68" height="40" rx="6" fill="${g.f}"/><rect x="12" y="34" width="76" height="14" rx="5" fill="${b}"/><rect x="46" y="34" width="8" height="50" fill="#f4c95d"/><ellipse cx="42" cy="30" rx="10" ry="6" fill="#f4c95d" transform="rotate(-20 42 30)"/><ellipse cx="58" cy="30" rx="10" ry="6" fill="#f4c95d" transform="rotate(20 58 30)"/><circle cx="50" cy="33" r="4" fill="#e0a82e"/><path d="M69 80L60 71a5 5 0 0 1 9-5 5 5 0 0 1 9 5Z" fill="#fff" opacity=".8" transform="translate(-10 -4)"/>`)},
+bonbon:(a,b)=>{const g=G(a,b);return S(g.d+sh+`<rect x="26" y="26" width="48" height="48" rx="11" fill="${g.f}" transform="rotate(45 50 50)"/><path d="M34 50q8-14 16 0t16 0" stroke="#fff" stroke-opacity=".5" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M44 36l5-3 3 5-5 3zM56 58l5-2 2 5-5 2z" fill="#f4c95d"/>`)},
+hamper:(a,b)=>{const g=G(a,b);return S(g.d+sh+`<path d="M30 52C30 16 70 16 70 52" fill="none" stroke="${a}" stroke-width="4"/><rect x="30" y="32" width="12" height="22" rx="3" fill="#d6336c" transform="rotate(-10 36 43)"/><circle cx="52" cy="42" r="9" fill="#5a2d17"/><rect x="60" y="30" width="11" height="24" rx="3" fill="#2fb084" transform="rotate(10 65 42)"/><path d="M22 50h56l-6 36H28Z" fill="${g.f}"/><path d="M25 63h50M27 75h46" stroke="#000" opacity=".2" stroke-width="2"/>`)}};
+const P=[
+{id:1,n:"Midnight Dark 70%",c:"Bars",p:6.5,r:4.9,rv:212,w:"100 g",bg:["#fbd7b8","#f0a98a"],t:"Bestseller",d:"A bold, deep dark chocolate with notes of red berries and a smooth, lingering finish. Made from single-origin cocoa beans, stone-ground and slowly conched for 48 hours.",i:"Cocoa mass, cane sugar, cocoa butter, natural vanilla. May contain traces of milk and nuts.",a:()=>art.bar("#6b3418","#2b130a","#d9a441")},
+{id:2,n:"Ruby Raspberry Bar",c:"Bars",p:7.2,r:4.8,rv:96,w:"90 g",bg:["#ffd1e1","#ff9ec1"],t:"New",d:"Naturally pink ruby cocoa folded with tangy freeze-dried raspberry pieces. Bright, fruity and wonderfully creamy.",i:"Ruby cocoa, cocoa butter, sugar, raspberry pieces, milk powder, vanilla.",a:()=>art.bar("#e0407f","#9b1f55","#ffe4ee")},
+{id:3,n:"Salted Caramel Truffles",c:"Truffles",p:12,r:4.9,rv:340,w:"12 pcs · 150 g",bg:["#ffe2a8","#f5b95c"],d:"Silky dark chocolate shells filled with a buttery salted caramel ganache and rolled in cocoa and sea salt.",i:"Dark chocolate, cream, butter, caramelised sugar, sea salt, cocoa powder.",a:()=>art.truffle("#c98234","#6f3c10","#ffd98a","#e9b04a")},
+{id:4,n:"Pistachio Matcha Truffles",c:"Truffles",p:13.5,r:4.7,rv:74,w:"12 pcs · 150 g",bg:["#d3f2c5","#8fd3a0"],d:"White chocolate ganache blended with ceremonial matcha and crushed Sicilian pistachios.",i:"White chocolate, cream, matcha, pistachios, butter. Contains nuts and milk.",a:()=>art.truffle("#8fc36a","#4a7f38","#e9ffd0","#2fb084")},
+{id:5,n:"Velvet Hot Cocoa",c:"Drinks",p:9.5,r:4.8,rv:128,w:"300 g tin",bg:["#d9ccff","#a99aee"],d:"Thick, silky Belgian-style drinking chocolate. Whisk into hot milk and top with marshmallows.",i:"Dark chocolate flakes, cocoa powder, cane sugar, pinch of sea salt.",a:()=>art.mug("#9b5de5","#5b2aa8")},
+{id:6,n:"Sweetheart Gift Box",c:"Gifts",p:29,r:5,rv:187,w:"24 pcs · 320 g",bg:["#ffc9d6","#ff8fab"],t:"Gift pick",d:"Twenty-four assorted truffles, pralines and bars in a heart-shaped box tied with a gold ribbon. Includes a handwritten note.",i:"Assorted chocolates. May contain milk, nuts, soy and gluten.",a:()=>art.box("#d81b60","#8e1450")},
+{id:7,n:"Gold Leaf Bonbons",c:"Truffles",p:15,r:4.9,rv:63,w:"9 pcs · 110 g",bg:["#cdeefa","#8dd0ee"],d:"Hazelnut praline hearts finished with a swirl of edible 23-carat gold leaf. A true showstopper.",i:"Milk chocolate, hazelnut praline, cocoa butter, edible gold leaf. Contains nuts.",a:()=>art.bonbon("#2f7fd1","#1b3f8f")},
+{id:8,n:"Luxury Hamper",c:"Gifts",p:55,r:5,rv:41,w:"1.2 kg",bg:["#ffe7c2","#ffc47d"],d:"A woven hamper filled with our best bars, truffles and hot cocoa. The ultimate chocolate gift.",i:"Assorted chocolates and cocoa. May contain milk, nuts, soy and gluten.",a:()=>art.hamper("#a8693a","#6b3a1f")}];
+const $=s=>document.querySelector(s),m=v=>"$"+v.toFixed(2);
+const id=parseInt(new URLSearchParams(location.search).get("id"))||1;
+const p=P.find(x=>x.id===id)||P[0];
+const grad=x=>`linear-gradient(135deg,${x.bg[0]},${x.bg[1]})`;
+document.title=p.n+" – ChocoHub";
+$("#bc").textContent=p.n;
+$("#big").style.background=grad(p);
+$("#big").innerHTML=(p.t?`<span class="badge">${p.t}</span>`:"")+p.a();
+$("#cat").textContent=p.c;
+$("#name").textContent=p.n;
+$("#price").textContent=m(p.p);
+$("#desc").textContent=p.d;
+$("#w").textContent=p.w;
+const tabs={Description:p.d,Ingredients:p.i,"Shipping & returns":"Free standard shipping on orders over $40. Orders ship within 2 business days in insulated packaging. Not happy? Contact us within 14 days for a replacement or refund."};
+let tab="Description";
+function drawTabs(){$("#tb").innerHTML=Object.keys(tabs).map(k=>`<button class="${k===tab?"on":""}" data-t="${k}">${k}</button>`).join("");$("#tc").textContent=tabs[tab]}
+$("#rel").innerHTML=P.filter(x=>x.id!==p.id).map(x=>`<a class="card" href="product.html?id=${x.id}"><div class="pic" style="background:${grad(x)}">${x.a()}</div><h3>${x.n}</h3><span>${m(x.p)}</span></a>`).join("");
+
+let qty=1,cart={};
+try{cart=JSON.parse(localStorage.getItem("chocohub_cart")||"{}")}catch(e){}
+const save=()=>{try{localStorage.setItem("chocohub_cart",JSON.stringify(cart))}catch(e){}};
+function draw(){
+const ids=Object.keys(cart);
+$("#count").textContent=ids.reduce((a,i)=>a+cart[i],0);
+$("#items").innerHTML=ids.length?ids.map(i=>{const x=P.find(y=>y.id==i);return `<div class="line"><div class="th" style="background:${grad(x)}">${x.a()}</div><span class="n">${x.n}<br><small>${m(x.p)}</small></span><span class="qty"><button data-m="${i}">−</button> ${cart[i]} <button data-p="${i}">+</button></span></div>`}).join(""):"<p style='color:var(--muted)'>Your cart is empty.</p>";
+$("#total").textContent=m(ids.reduce((a,i)=>a+cart[i]*P.find(y=>y.id==i).p,0));
+save();
+}
+function addNow(){cart[p.id]=(cart[p.id]||0)+qty;$("#msg").textContent="";draw();$("#cart").classList.add("open")}
+document.addEventListener("click",e=>{
+const t=e.target;
+if(t.dataset.t){tab=t.dataset.t;drawTabs()}
+if(t.dataset.p){cart[t.dataset.p]++;draw()}
+if(t.dataset.m){if(--cart[t.dataset.m]<1)delete cart[t.dataset.m];draw()}
+});
+$("#mi").onclick=()=>{if(qty>1)$("#q").textContent=--qty};
+$("#pl").onclick=()=>{if(qty<20)$("#q").textContent=++qty};
+$("#add").onclick=addNow;
+$("#now").onclick=addNow;
+$("#open").onclick=()=>$("#cart").classList.add("open");
+$("#close").onclick=()=>$("#cart").classList.remove("open");
+$("#checkout").onclick=()=>{
+if(!Object.keys(cart).length){$("#msg").textContent="Add something sweet first 🍫";return}
+cart={};draw();$("#msg").textContent="Thank you! Demo order placed 🎉";
+};
+const esc=s=>s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const seed=[{n:"Aisha",s:5,t:"Absolutely divine. Arrived fresh and beautifully packed."},{n:"Daniel",s:5,t:"Best chocolate I have had in years. Ordering again!"},{n:"Priya",s:4,t:"Lovely flavour and a perfect gift. Would love bigger sizes."}];
+const rk="chocohub_reviews_"+p.id;
+let mine=[],myRate=0;
+try{mine=JSON.parse(localStorage.getItem(rk)||"[]")}catch(e){}
+const starTxt=n=>"★".repeat(n)+"☆".repeat(5-n);
+function rvDraw(){
+const n=p.rv+mine.length,avg=(p.r*p.rv+mine.reduce((a,x)=>a+x.s,0))/n;
+const sm=`<small>${avg.toFixed(1)} · ${n} reviews</small>`;
+$("#stars").innerHTML=starTxt(Math.round(avg))+sm;
+$("#avg").textContent=avg.toFixed(1);
+$("#avgs").textContent=starTxt(Math.round(avg));
+$("#cnt").textContent="Based on "+n+" reviews";
+$("#rlist").innerHTML=[...mine,...seed].map(x=>`<div class="rev"><b>${esc(x.n)}</b><span class="stars">${starTxt(x.s)}</span><p>${esc(x.t)}</p></div>`).join("");
+}
+function pickDraw(){$("#pick").innerHTML=[1,2,3,4,5].map(i=>`<button type="button" class="${i<=myRate?"on":""}" data-s="${i}" aria-label="${i} stars">★</button>`).join("")}
+document.addEventListener("click",e=>{if(e.target.dataset.s){myRate=+e.target.dataset.s;pickDraw()}});
+$("#rf").onsubmit=e=>{
+e.preventDefault();
+if(!myRate){$("#rmsg").textContent="Please pick a star rating first.";return}
+mine.unshift({n:$("#rn").value.trim(),s:myRate,t:$("#rt").value.trim()});
+try{localStorage.setItem(rk,JSON.stringify(mine))}catch(err){}
+myRate=0;$("#rf").reset();pickDraw();rvDraw();$("#rmsg").textContent="Thank you for your review! 💌";
+};
+pickDraw();rvDraw();
+drawTabs();draw();
+</script>
+</body>
+</html>

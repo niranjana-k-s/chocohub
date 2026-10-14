@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ChocoHub – Artisan Chocolate Boutique</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff7f0;--surface:#fff;--text:#2f1620;--muted:#85666f;--rose:#c2185b;--gold:#d99a2b;--border:#f0dccf;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b0f17;--surface:#2a1823;--text:#fbeee6;--muted:#c2a3ad;--rose:#ff6fa5;--gold:#f2b84b;--border:#43293a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1b0f17;--surface:#2a1823;--text:#fbeee6;--muted:#c2a3ad;--rose:#ff6fa5;--gold:#f2b84b;--border:#43293a;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Poppins,system-ui,sans-serif;line-height:1.6}
+h1,h2,h3,.logo{font-family:'Playfair Display',Georgia,serif}
+svg{display:block;width:100%;height:auto}
+a{color:inherit}
+header{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:12px 22px;background:var(--bg);border-bottom:1px solid var(--border)}
+.logo{font-size:1.5rem;font-weight:800;text-decoration:none;background:linear-gradient(90deg,var(--rose),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+nav{display:flex;gap:18px;font-size:.9rem;align-items:center}
+nav a{text-decoration:none;color:var(--muted)}
+.btn{display:inline-block;font:600 .9rem Poppins,sans-serif;background:linear-gradient(90deg,#c2185b,#e8743b);color:#fff;border:0;border-radius:999px;padding:10px 22px;text-decoration:none;cursor:pointer;box-shadow:0 6px 16px rgba(194,24,91,.3)}
+@media (max-width:560px){nav a.l{display:none}}
+.hero{position:relative;overflow:hidden;text-align:center;color:#fff;padding:60px 20px 120px;background:radial-gradient(circle at 15% 20%,#ff8a5b55,transparent 45%),radial-gradient(circle at 85% 30%,#ffd16655,transparent 40%),linear-gradient(135deg,#3a1030,#8e1d5a 55%,#d9533f)}
+.hero small{letter-spacing:.3em;text-transform:uppercase;font-size:.72rem;opacity:.85}
+.hero h1{font-size:clamp(2.3rem,8vw,4rem);line-height:1.1;margin:12px auto 14px;max-width:780px}
+.hero h1 em{font-style:italic;background:linear-gradient(90deg,#ffe29a,#f7b733);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:520px;margin:0 auto 26px;opacity:.92}
+.hero .btn{background:#fff;color:#8e1d5a;padding:14px 32px;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.float{display:flex;justify-content:center;gap:clamp(8px,4vw,36px);margin-top:36px}
+.float div{width:clamp(70px,20vw,120px);animation:fl 4s ease-in-out infinite}
+.float div:nth-child(2){animation-delay:-1.3s;margin-top:-18px}
+.float div:nth-child(3){animation-delay:-2.6s}
+@keyframes fl{50%{transform:translateY(-12px) rotate(4deg)}}
+@media (prefers-reduced-motion:reduce){.float div{animation:none}}
+.wave{position:absolute;left:0;right:0;bottom:-1px;height:70px}
+.wave path{fill:var(--bg)}
+.perks{display:flex;gap:10px 26px;justify-content:center;flex-wrap:wrap;padding:6px 16px 0;color:var(--muted);font-size:.9rem}
+section.w{max-width:1020px;margin:auto;padding:36px 16px 10px}
+.head{text-align:center;margin-bottom:20px}
+.head h2{font-size:2rem;margin:0}
+.head p{color:var(--muted);margin:4px 0 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:12px 12px 18px;position:relative;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-5px);box-shadow:0 16px 30px rgba(120,30,70,.18)}
+.lnk{color:inherit;text-decoration:none;display:block}
+.pic{border-radius:16px;padding:18px 28px 8px}
+.badge{position:absolute;top:20px;left:20px;background:var(--gold);color:#2f1620;font-size:.68rem;font-weight:600;padding:3px 10px;border-radius:999px}
+.card h3{margin:12px 6px 0;font-size:1.12rem}
+.card p{margin:2px 6px 0;color:var(--muted);font-size:.82rem}
+.price{display:block;margin:8px 6px 0;font-weight:600;color:var(--rose)}
+.view{display:block;margin:6px 6px 0;font-size:.82rem;font-weight:600;color:var(--text)}
+.card:hover .view{color:var(--rose)}
+.more{text-align:center;margin-top:22px}
+.story{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:1020px;margin:30px auto 0;padding:0 16px}
+.story div{border-radius:20px;padding:24px;color:#fff}
+.story div:nth-child(1){background:linear-gradient(135deg,#7b2cbf,#c2185b)}
+.story div:nth-child(2){background:linear-gradient(135deg,#e8743b,#f2b84b);color:#3a1a05}
+.story div:nth-child(3){background:linear-gradient(135deg,#0f8b8d,#3bb78f)}
+.story b{font:600 1.2rem 'Playfair Display',serif;display:block;margin-bottom:4px}
+.news{max-width:640px;margin:40px auto;padding:30px 20px;text-align:center;border-radius:26px;background:var(--surface);border:1.5px dashed var(--gold)}
+.news h2{margin:0 0 6px}
+.news form{display:flex;gap:8px;margin-top:14px}
+.news input{flex:1;min-width:0;font:inherit;padding:11px 16px;border-radius:999px;border:1.5px solid var(--border);background:var(--bg);color:var(--text)}
+#nmsg{color:var(--rose);min-height:1.5em;margin:8px 0 0}
+footer{text-align:center;color:var(--muted);padding:26px;font-size:.85rem;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+<header>
+<a class="logo" href="index.html">ChocoHub</a>
+<nav><a class="l" href="product.html?id=1">Shop</a><a class="l" href="#story">Our Story</a><a class="l" href="#join">Join</a><a class="btn" href="product.html?id=1">Order now</a></nav>
+</header>
+
+<section class="hero">
+<small>Artisan chocolate boutique</small>
+<h1>Taste the <em>magic</em> in every little bite</h1>
+<p>Hand-crafted bars, truffles and gift boxes, made from single-origin cocoa and delivered with love.</p>
+<a class="btn" href="product.html?id=1">Explore the collection</a>
+<div class="float" id="float"></div>
+<svg class="wave" viewBox="0 0 400 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40Q50 10 100 38T200 36T300 40T400 30V70H0Z"/></svg>
+</section>
+
+<div class="perks"><span>🚚 Free shipping over $40</span><span>🌱 Fair-trade cocoa</span><span>🎁 Free gift wrapping</span></div>
+
+<section class="w" id="shop">
+<div class="head"><h2>Our Favourites</h2><p>Loved by chocolate lovers everywhere</p></div>
+<div class="grid" id="grid"></div>
+<div class="more"><a class="btn" href="product.html?id=1">View all chocolates</a></div>
+</section>
+
+<section class="story" id="story">
+<div><b>Ethically sourced</b>Fair-trade cocoa from partner farms, paid above market price.</div>
+<div><b>Small-batch fresh</b>Made in tiny batches every week, never stored for months.</div>
+<div><b>Gift ready</b>Free ribbon wrapping and a handwritten note on every order.</div>
+</section>
+
+<section class="news" id="join">
+<h2>Join the Sweet Club</h2>
+<p style="color:var(--muted);margin:0">Get 10% off your first order and early access to new flavours.</p>
+<form id="nf"><input type="email" id="em" placeholder="you@example.com" required aria-label="Email"><button class="btn" type="submit">Join</button></form>
+<p id="nmsg"></p>
+</section>
+
+<footer>© 2026 ChocoHub · hello@chocohub.example</footer>
+
+<script>
+let u=0;
+const G=(a,b)=>{const i="g"+u++;return{d:`<defs><linearGradient id="${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs>`,f:`url(#${i})`}};
+const S=x=>`<svg viewBox="0 0 100 100" aria-hidden="true">${x}</svg>`;
+const sh='<ellipse cx="50" cy="91" rx="30" ry="4" fill="#000" opacity=".18"/>';
+const art={
+bar:(a,b,w)=>{const g=G(a,b);let l="";for(let i=1;i<3;i++)l+=`<path d="M${22+i*18.7} 12v74"/>`;for(let j=1;j<5;j++)l+=`<path d="M22 ${12+j*14.8}h56"/>`;
+return S(g.d+sh+`<g transform="rotate(-12 50 50)"><rect x="22" y="12" width="56" height="74" rx="7" fill="${g.f}"/><g stroke="#000" stroke-opacity=".22" stroke-width="1.5">${l}</g><rect x="22" y="56" width="56" height="30" rx="7" fill="${w}"/><rect x="22" y="64" width="56" height="4" fill="#fff" opacity=".55"/><path d="M30 20q6-4 12 0" stroke="#fff" stroke-opacity=".4" stroke-width="3" fill="none" stroke-linecap="round"/></g>`)},
+truffle:(a,b,d,c)=>{const g=G(a,b);let s="";for(let i=0;i<14;i++){const t=i*2.4,r=6+(i*7)%20;s+=`<circle cx="${(50+Math.cos(t)*r*.95).toFixed(1)}" cy="${(50+Math.sin(t)*r).toFixed(1)}" r="1.7" fill="${d}"/>`}
+return S(g.d+sh+`<path d="M24 66L76 66L70 86Q50 90 30 86Z" fill="${c}"/><path d="M30 71h40M33 78h34" stroke="#fff" stroke-opacity=".45"/><circle cx="50" cy="50" r="27" fill="${g.f}"/>${s}<ellipse cx="40" cy="38" rx="9" ry="5" fill="#fff" opacity=".3" transform="rotate(-30 40 38)"/>`)},
+box:(a,b)=>{const g=G(a,b);return S(g.d+sh+`<rect x="16" y="44" width="68" height="40" rx="6" fill="${g.f}"/><rect x="12" y="34" width="76" height="14" rx="5" fill="${b}"/><rect x="46" y="34" width="8" height="50" fill="#f4c95d"/><ellipse cx="42" cy="30" rx="10" ry="6" fill="#f4c95d" transform="rotate(-20 42 30)"/><ellipse cx="58" cy="30" rx="10" ry="6" fill="#f4c95d" transform="rotate(20 58 30)"/><circle cx="50" cy="33" r="4" fill="#e0a82e"/><path d="M69 80L60 71a5 5 0 0 1 9-5 5 5 0 0 1 9 5Z" fill="#fff" opacity=".8" transform="translate(-10 -4)"/>`)}};
+const P=[
+{id:1,n:"Midnight Dark 70%",d:"Bold, deep and slightly fruity",p:"$6.50",bg:["#fbd7b8","#f0a98a"],t:"Bestseller",a:()=>art.bar("#6b3418","#2b130a","#d9a441")},
+{id:2,n:"Ruby Raspberry Bar",d:"Naturally pink and berry-bright",p:"$7.20",bg:["#ffd1e1","#ff9ec1"],t:"New",a:()=>art.bar("#e0407f","#9b1f55","#ffe4ee")},
+{id:3,n:"Salted Caramel Truffles",d:"Box of 12, hand-rolled",p:"$12.00",bg:["#ffe2a8","#f5b95c"],a:()=>art.truffle("#c98234","#6f3c10","#ffd98a","#e9b04a")},
+{id:6,n:"Sweetheart Gift Box",d:"24 assorted pieces with ribbon",p:"$29.00",bg:["#ffc9d6","#ff8fab"],t:"Gift pick",a:()=>art.box("#d81b60","#8e1450")}];
+document.getElementById("float").innerHTML=[["#c98234","#6f3c10","#ffd98a","#e9b04a"],["#e0407f","#8e1450","#ffd1e1","#ff8fab"],["#6b3418","#2b130a","#f4c95d","#d9a441"]].map(x=>`<div>${art.truffle(...x)}</div>`).join("");
+document.getElementById("grid").innerHTML=P.map(x=>`<a class="card lnk" href="product.html?id=${x.id}">${x.t?`<span class="badge">${x.t}</span>`:""}<div class="pic" style="background:linear-gradient(135deg,${x.bg[0]},${x.bg[1]})">${x.a()}</div><h3>${x.n}</h3><p>${x.d}</p><span class="price">${x.p}</span><span class="view">View details →</span></a>`).join("");
+document.getElementById("nf").onsubmit=e=>{e.preventDefault();document.getElementById("nmsg").textContent="Welcome to the Sweet Club! 💌";document.getElementById("em").value=""};
+</script>
+</body>
+</html>
